@@ -2,6 +2,7 @@
 
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Home, Lightbulb, Settings, Trees } from "lucide-react";
+import Image from "next/image";
 import { List } from "./BlogTemplate";
 
 const missionIcons = [Lightbulb, Settings, Home, Trees];
@@ -39,9 +40,12 @@ export default function AboutClient() {
           </div>
         </div>
         <div className="flex col-span-2 md:col-span-1 items-center justify-center">
-          <img
+          <Image
             className="relative overflow-hidden bg-cover bg-center"
             src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2070"
+            alt="About Diabesity Life"
+            width={800}
+            height={600}
           />
         </div>
       </section>
@@ -51,9 +55,11 @@ export default function AboutClient() {
         <div className="max-w-4xl lg:max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="order-2 md:order-1 h-full">
-              <img
+              <Image
                 src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?q=80&w=2070"
                 alt="Hands together representing unity"
+                width={600}
+                height={450}
                 className="w-full h-full object-cover"
               />
             </div>

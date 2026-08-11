@@ -273,6 +273,11 @@
       "youtubePlaylist": "YouTube playlist",
       "description2Suffix": ""
     },
+    "channelVideos": {
+      "heading": "Latest from our YouTube channel",
+      "description": "New videos on diabesity, GLP-1 therapies, and living well in Pakistan — updated as we publish.",
+      "visitChannel": "Visit our channel"
+    },
     "glp": {
       "heading": "GLP-1 & Diabesity: A Modern Clinical Perspective",
       "description": "Learn how appetite regulation, insulin signalling, and metabolic health are connected.",

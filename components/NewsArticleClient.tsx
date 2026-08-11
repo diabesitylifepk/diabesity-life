@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { NewsArticle } from "@/lib/newsContent";
 
@@ -41,9 +42,11 @@ export default function NewsArticleClient({
 
           {/* Featured Image */}
           <div className="mb-12">
-            <img
+            <Image
               src={article.image}
               alt={article.imageAlt}
+              width={800}
+              height={384}
               className="w-full h-96 object-cover"
             />
           </div>

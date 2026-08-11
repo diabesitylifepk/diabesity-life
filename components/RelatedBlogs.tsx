@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { BlogArticle, getBlogArticle } from "@/lib/blogContent";
 import Link from "next/link";
 import { Card } from "./ui/card";
@@ -45,9 +46,11 @@ export default function RelatedBlogs({
                       month: "short",
                     })}
                   </div>
-                  <img
+                  <Image
                     src={blog.image}
                     alt={blog.imageAlt}
+                    width={400}
+                    height={192}
                     className="w-full h-full object-cover"
                   />
                 </div>

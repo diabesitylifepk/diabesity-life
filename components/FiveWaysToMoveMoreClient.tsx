@@ -95,9 +95,11 @@ export default function FiveWaysToMoveMoreClient() {
           >
             بند کریں ✕
           </button>
-          <img
+          <Image
             src={images[selectedImage].src}
             alt={images[selectedImage].alt}
+            width={800}
+            height={600}
             className="max-w-[90vw] max-h-[90vh] object-contain"
             onClick={(e) => e.stopPropagation()}
           />
@@ -115,9 +117,11 @@ export default function FiveWaysToMoveMoreClient() {
                 className="bg-gray-100 border mb-4 aspect-[4/3] flex items-center justify-center cursor-zoom-in"
                 onClick={() => setShowLightbox(true)}
               >
-                <img
+                <Image
                   src={images[selectedImage].src}
                   alt={images[selectedImage].alt}
+                  width={600}
+                  height={450}
                   className="max-w-full max-h-full object-contain"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
@@ -139,9 +143,11 @@ export default function FiveWaysToMoveMoreClient() {
                         : "border-gray-200 hover:border-gray-400"
                     }`}
                   >
-                    <img
+                    <Image
                       src={image.src}
                       alt={image.alt}
+                      width={100}
+                      height={100}
                       className="w-full h-full object-cover"
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;

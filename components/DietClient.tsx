@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const dietContent = [
@@ -444,9 +445,11 @@ export default function DietClient() {
               </p>
             </div>
             <div className="relative h-64 lg:h-96">
-              <img
+              <Image
                 src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=2053"
                 alt="Healthy diet"
+                width={800}
+                height={384}
                 className="w-full h-full object-cover"
               />
             </div>

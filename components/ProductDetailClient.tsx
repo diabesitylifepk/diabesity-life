@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { jsPDF } from "jspdf";
 import { ArrowLeft, Download, FileText, Shield, X } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -157,9 +158,11 @@ export default function ProductDetailClient({
           >
             <X className="w-8 h-8" />
           </button>
-          <img
+          <Image
             src={images[selectedImage].src}
             alt={images[selectedImage].alt}
+            width={800}
+            height={600}
             className="max-w-[90vw] max-h-[90vh] object-contain"
             onClick={(e) => e.stopPropagation()}
           />
@@ -194,9 +197,11 @@ export default function ProductDetailClient({
                 className="bg-gray-50 border border-gray-200 mb-4 aspect-[4/3] flex items-center justify-center cursor-zoom-in p-8"
                 onClick={() => setShowLightbox(true)}
               >
-                <img
+                <Image
                   src={images[selectedImage].src}
                   alt={images[selectedImage].alt}
+                  width={600}
+                  height={450}
                   className="max-w-full max-h-full object-contain"
                 />
               </div>
@@ -213,9 +218,11 @@ export default function ProductDetailClient({
                         : "border-gray-200 hover:border-gray-400"
                     }`}
                   >
-                    <img
+                    <Image
                       src={image.src}
                       alt={image.alt}
+                      width={100}
+                      height={100}
                       className="w-full h-full object-contain"
                     />
                   </button>

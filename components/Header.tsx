@@ -18,6 +18,7 @@ import {
   User,
   X,
 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
@@ -807,10 +808,13 @@ export default function Header() {
                 {/* Logo */}
                 <div className="flex flex-col items-start gap-2">
                   <Link href="/" className="flex items-center flex-shrink-0">
-                    <img
+                    <Image
                       src="/logo.png"
                       alt="Diabesity"
+                      width={200}
+                      height={80}
                       className="h-[80px] w-auto"
+                      priority
                     />
                   </Link>
                 </div>
@@ -836,10 +840,13 @@ export default function Header() {
               {/* Mobile - Logo and Contact Info */}
               <div className="lg:hidden flex justify-between items-center flex-1 gap-2">
                 <Link href="/" className="flex items-center">
-                  <img
+                  <Image
                     src="/logo.png"
                     alt="Diabesity"
+                    width={120}
+                    height={45}
                     className="h-[45px] w-auto"
+                    priority
                   />
                 </Link>
                 <div className="flex items-center gap-2">

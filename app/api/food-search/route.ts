@@ -6,8 +6,13 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ foods: [] });
   }
 
-  // const apiKey = "oEgsjytDOD5PE0fMnBTriiQVFf3NbZit8GuEzg7G";
-  const apiKey = "4m3ABH0rqmUUhG4ug2YQW51Xz1oiPS4AdTN10rl4";
+  const apiKey = process.env.USDA_FDC_API_KEY;
+  if (!apiKey) {
+    return NextResponse.json(
+      { error: "USDA_FDC_API_KEY is not configured" },
+      { status: 500 },
+    );
+  }
 
   const url = `https://api.nal.usda.gov/fdc/v1/foods/search?query=${encodeURIComponent(
     query,

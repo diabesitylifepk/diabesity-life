@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Medication from "../public/medication.jpeg";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -272,8 +273,8 @@ export default function MedicationClient() {
               </p>
             </div>
             <div className="relative h-64 lg:h-96">
-              <img
-                src={Medication.src}
+              <Image
+                src={Medication}
                 alt="Medication"
                 className="w-full h-full object-cover"
               />

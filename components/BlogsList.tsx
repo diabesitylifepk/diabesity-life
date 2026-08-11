@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Card } from "@/components/ui/card";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { BlogArticle } from "@/lib/blogContent";
@@ -32,9 +33,11 @@ export default function BlogsList({ blogs }: BlogsListProps) {
                     },
                   )}
                 </div>
-                <img
+                <Image
                   src={blog.image}
                   alt={blog.imageAlt}
+                  width={400}
+                  height={300}
                   className="w-full h-full object-cover"
                 />
               </div>

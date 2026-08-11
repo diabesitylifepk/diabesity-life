@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
@@ -300,9 +301,11 @@ export default function GlpHubClient() {
               </p>
             </div>
             <div className="relative h-64 lg:h-96">
-              <img
+              <Image
                 src="https://images.unsplash.com/photo-1559757175-5700dde675bc?q=80&w=2069"
                 alt="GLP-1 Hub"
+                width={800}
+                height={384}
                 className="w-full h-full object-cover"
               />
             </div>
