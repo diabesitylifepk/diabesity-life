@@ -2,6 +2,7 @@
 
 import { Card } from "@/components/ui/card";
 import { BlogArticle } from "@/lib/blogContent";
+import Image from "next/image";
 import Link from "next/link";
 
 interface BlogsClientProps {
@@ -26,9 +27,12 @@ export default function BlogsClient({ blogs }: BlogsClientProps) {
         </div>
         {/* Hero Section */}
         <div className="flex col-span-2 md:col-span-1 items-center justify-center">
-          <img
+          <Image
             className="relative overflow-hidden bg-cover bg-center"
             src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2100"
+            alt="Blogs"
+            width={800}
+            height={600}
           />
           {/* <div className="absolute inset-0 bg-gray-500/60"></div> */}
         </div>
@@ -52,9 +56,11 @@ export default function BlogsClient({ blogs }: BlogsClientProps) {
                         month: "short",
                       })}
                     </div>
-                    <img
+                    <Image
                       src={blog.image}
                       alt={blog.imageAlt}
+                      width={400}
+                      height={300}
                       className="w-full h-full object-cover"
                     />
                   </div>

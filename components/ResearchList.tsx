@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Card } from "@/components/ui/card";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { ResearchArticle } from "@/lib/researchContent";
@@ -23,9 +24,11 @@ export default function ResearchList({ research }: ResearchListProps) {
           <Link key={idx} href={`/research/${article.slug}`}>
             <Card className="overflow-hidden hover:shadow-lg transition-shadow bg-white py-0 rounded-none h-full cursor-pointer">
               <div className="relative h-48 bg-gray-200">
-                <img
+                <Image
                   src={article.image}
                   alt={article.imageAlt}
+                  width={400}
+                  height={192}
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute top-4 left-4 bg-primary text-white px-3 py-1 text-xs font-semibold">

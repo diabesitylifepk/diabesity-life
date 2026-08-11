@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Card } from "@/components/ui/card";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Recipe } from "@/lib/recipeContent";
@@ -35,9 +36,11 @@ export default function RecipeList({ recipes }: RecipeListProps) {
           <Link key={idx} href={`/recipes/${recipe.slug}`}>
             <Card className="overflow-hidden hover:shadow-lg rounded-none transition-shadow bg-white cursor-pointer h-full pb-6 pt-0">
               <div className="relative h-48 bg-gray-200">
-                <img
+                <Image
                   src={recipe.image}
                   alt={recipe.imageAlt}
+                  width={400}
+                  height={192}
                   className="w-full h-full object-cover"
                 />
               </div>

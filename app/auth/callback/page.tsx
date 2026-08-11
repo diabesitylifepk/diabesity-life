@@ -1,5 +1,6 @@
 "use client";
 
+import { API_BASE_URL } from "@/lib/utils";
 import { useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense } from "react";
@@ -9,29 +10,37 @@ function CallbackHandler() {
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    const token = searchParams.get("token");
-    const userParam = searchParams.get("user");
+    const code = searchParams.get("code");
 
-    if (token && userParam) {
-      try {
-        const user = JSON.parse(decodeURIComponent(userParam));
+    if (!code) {
+      router.push("/login?error=auth_failed");
+      return;
+    }
 
-        // Store in localStorage
-        localStorage.setItem("token", token);
-        localStorage.setItem("user", JSON.stringify(user));
-
-        // Redirect to home
-        router.push("/");
+    // The Google OAuth redirect only carries a short-lived, single-use
+    // code — never the token itself — so it never ends up in browser
+    // history, server access logs, or analytics. Exchange it here for the
+    // real token.
+    fetch(`${API_BASE_URL}/auth/exchange`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ code }),
+    })
+      .then(async (res) => {
+        if (!res.ok) throw new Error("Exchange failed");
+        return res.json();
+      })
+      .then((data: { access_token: string; user: unknown }) => {
+        localStorage.setItem("token", data.access_token);
+        localStorage.setItem("user", JSON.stringify(data.user));
 
         // Force a page reload to update auth state
         window.location.href = "/";
-      } catch (error) {
-        console.error("Error parsing user data:", error);
+      })
+      .catch((error) => {
+        console.error("Error exchanging auth code:", error);
         router.push("/login?error=auth_failed");
-      }
-    } else {
-      router.push("/login?error=auth_failed");
-    }
+      });
   }, [searchParams, router]);
 
   return (

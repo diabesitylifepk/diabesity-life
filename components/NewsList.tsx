@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -149,9 +150,11 @@ export default function NewsList({ news }: NewsListProps) {
                       ? article.titleUr
                       : article.title}
                   </h3>
-                  <img
+                  <Image
                     src={article.image}
                     alt={article.title}
+                    width={400}
+                    height={192}
                     className="w-full h-48 object-cover mb-4"
                   />
                   <Button variant="outlined" size="sm" className="w-fit">

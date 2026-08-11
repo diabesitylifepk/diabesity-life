@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { JSX } from "react";
 
 interface TextImageSectionProps {
@@ -28,9 +29,11 @@ export function TextImageSection({
 
       {/* Image */}
       <div className={`${reverse ? "md:order-1" : "md:order-2"}`}>
-        <img
+        <Image
           src={image}
           alt={imageAlt}
+          width={600}
+          height={320}
           className="w-full h-64 md:h-80 object-cover"
         />
       </div>

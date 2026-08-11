@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const glpContent = [
@@ -1935,9 +1936,11 @@ export default function GlpClient() {
               </p>
             </div>
             <div className="relative h-64 lg:h-96">
-              <img
+              <Image
                 src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2070"
                 alt="GLP-1 and Diabesity"
+                width={800}
+                height={384}
                 className="w-full h-full object-cover"
               />
             </div>

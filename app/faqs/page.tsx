@@ -2,6 +2,7 @@
 
 import { Category, getCategoryGradient } from "@/lib/utils";
 import { ChevronDown } from "lucide-react";
+import Image from "next/image";
 import { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import DietIcon from "../../public/faqs-diet.svg";
@@ -1168,9 +1169,11 @@ export default function NewsClient() {
                           : info.hoverColor
                       }`}
                     >
-                      <img
-                        src={Icon.src}
+                      <Image
+                        src={Icon}
                         alt={info.title}
+                        width={80}
+                        height={80}
                         className={`w-30 h-30 transition-transform hover:scale-120 ${
                           selectedCategory === info.category ? "scale-120" : ""
                         }`}

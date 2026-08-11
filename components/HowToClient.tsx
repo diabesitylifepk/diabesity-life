@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 function getHowToSections(t: (key: string) => string) {
@@ -416,9 +417,11 @@ export default function HowToClient() {
               </p>
             </div>
             <div className="relative h-64 lg:h-96">
-              <img
+              <Image
                 src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=80&w=2072"
                 alt="How to guide"
+                width={800}
+                height={384}
                 className="w-full h-full object-cover"
               />
             </div>

@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { useLanguage } from "@/contexts/LanguageContext";
+import Image from "next/image";
 import { BlogArticle } from "@/lib/blogContent";
 import { NewsArticle } from "@/lib/newsContent";
 import { recipes } from "@/lib/recipeContent";
@@ -312,6 +313,13 @@ export default function Home({ blogs, news }: HomeClientProps) {
 
   return (
     <div className="flex flex-col">
+      {/* Single page-level H1 (kept off-screen). Hero slide headings below are
+          intentionally h2 — this page cycles through multiple promotional
+          slides and duplicating <h1> per slide (and per mobile/desktop
+          layout copy) creates a multiple-H1 SEO issue. */}
+      <h1 className="sr-only">
+        Diabesity - Living with diabesity in Pakistan
+      </h1>
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         <div className="lg:max-w-4xl xl:max-w-6xl 2xl:max-w-6xl mx-auto">
@@ -328,16 +336,18 @@ export default function Home({ blogs, news }: HomeClientProps) {
               {/* Mobile Layout */}
               <div className="lg:hidden">
                 <div className="relative w-full px-6 h-auto md:h-80">
-                  <img
+                  <Image
                     src={slide.image}
                     alt={slide.heading}
+                    width={800}
+                    height={550}
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="bg-white px-6 py-8">
-                  <h1 className="text-primary-text text-2xl md:text-3xl font-bold mb-4 leading-tight">
+                  <h2 className="text-primary-text text-2xl md:text-3xl font-bold mb-4 leading-tight">
                     {slide.heading}
-                  </h1>
+                  </h2>
                   <p className="text-primary-text text-base mb-6 leading-relaxed">
                     {slide.body}
                   </p>
@@ -356,9 +366,11 @@ export default function Home({ blogs, news }: HomeClientProps) {
 
               {/* Desktop Layout */}
               <div className="hidden lg:block relative">
-                <img
+                <Image
                   src={slide.image}
                   alt={slide.heading}
+                  width={1200}
+                  height={550}
                   className="w-full h-[550px] object-cover"
                 />
 
@@ -378,9 +390,9 @@ export default function Home({ blogs, news }: HomeClientProps) {
 
                   {/* White Background Box */}
                   <div className="relative bg-white p-8 shadow-lg">
-                    <h1 className="text-primary-text text-4xl font-bold mb-4 leading-tight">
+                    <h2 className="text-primary-text text-4xl font-bold mb-4 leading-tight">
                       {slide.heading}
-                    </h1>
+                    </h2>
                     <p className="text-primary-text text-base mb-6 leading-relaxed">
                       {slide.body}
                     </p>
@@ -471,9 +483,11 @@ export default function Home({ blogs, news }: HomeClientProps) {
                 className="p-6 rounded-none hover:shadow-lg transition-shadow h-96"
               >
                 <div className="flex flex-col gap-6">
-                  <img
+                  <Image
                     src={service.icon}
                     alt={service.title}
+                    width={112}
+                    height={80}
                     className="w-28 h-20 object-contain"
                   />
                   <h3 className="text-xl font-semibold text-primary-text">
@@ -596,8 +610,8 @@ export default function Home({ blogs, news }: HomeClientProps) {
 
             {/* Right - Pakistan Map (extends beyond section height) */}
             <div className="relative flex-1 flex justify-end">
-              <img
-                src={PakistanMap.src}
+              <Image
+                src={PakistanMap}
                 alt="Pakistan Map"
                 className="absolute top-1/2 -translate-y-1/2 right-0 h-[300px] w-auto object-fill"
               />
@@ -693,9 +707,11 @@ export default function Home({ blogs, news }: HomeClientProps) {
                           </div>
                         </div>
                         <div className="flex flex-col justify-between h-full">
-                          <img
+                          <Image
                             src={article.image}
                             alt={article.title}
+                            width={400}
+                            height={192}
                             className="w-full h-48 object-cover"
                           />
                         </div>
@@ -798,9 +814,11 @@ export default function Home({ blogs, news }: HomeClientProps) {
                         { day: "numeric", month: "short" },
                       )}
                     </div>
-                    <img
+                    <Image
                       src={blog.image}
                       alt={blog.imageAlt}
+                      width={400}
+                      height={300}
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -862,8 +880,8 @@ export default function Home({ blogs, news }: HomeClientProps) {
             </div>
 
             <div className="w-full">
-              <img
-                src={Story.src}
+              <Image
+                src={Story}
                 alt="Story featured image"
                 className="w-full h-auto object-cover"
               />
@@ -930,8 +948,8 @@ export default function Home({ blogs, news }: HomeClientProps) {
 
               {/* Right - 2 columns (Image) */}
               <div className="col-span-2">
-                <img
-                  src={Story.src}
+                <Image
+                  src={Story}
                   alt="Story featured image"
                   className="w-full h-full object-cover"
                 />
@@ -1011,6 +1029,41 @@ export default function Home({ blogs, news }: HomeClientProps) {
         </div>
       </section>
 
+      {/* Latest Channel Videos Section — connected to youtube.com/@diabesitylifepk.
+          Uses the channel's uploads playlist embed, which YouTube updates
+          automatically as new videos are published — no manual upkeep needed. */}
+      <section className="py-16 bg-gray-50">
+        <div className="lg:max-w-4xl xl:max-w-6xl 2xl:max-w-6xl mx-auto px-6 lg:px-0">
+          <div className="flex flex-col gap-2 mb-8">
+            <h2 className="text-primary-text text-2xl md:text-3xl font-bold">
+              {t("home.channelVideos.heading")}
+            </h2>
+            <p className="text-primary-text text-md leading-relaxed">
+              {t("home.channelVideos.description")}{" "}
+              <Link
+                href="https://www.youtube.com/@diabesitylifepk"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary font-semibold underline"
+              >
+                {t("home.channelVideos.visitChannel")}
+              </Link>
+            </p>
+          </div>
+          <div className="relative w-full pb-[56.25%] bg-black">
+            <iframe
+              className="absolute top-0 left-0 w-full h-full"
+              src="https://www.youtube.com/embed/videoseries?list=UUOrBT_vwwkps-XoJv1mcs1Q"
+              title="Latest videos from Diabesity Life"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
       {/* GLP Hub Section */}
       <section className="relative bg-secondary overflow-visible py-10 mb-8 lg:mb-20">
         <div className="relative z-10 lg:max-w-4xl xl:max-w-6xl 2xl:max-w-6xl mx-auto px-6">
@@ -1060,8 +1113,8 @@ export default function Home({ blogs, news }: HomeClientProps) {
 
             {/* Right - Pakistan Map (extends beyond section height) */}
             <div className="relative flex-1 flex justify-end">
-              <img
-                src={GlpInjection.src}
+              <Image
+                src={GlpInjection}
                 alt="Pakistan Map"
                 className="absolute top-1/2 -translate-y-1/2 right-25 h-[300px] w-auto object-fill"
               />
@@ -1075,9 +1128,11 @@ export default function Home({ blogs, news }: HomeClientProps) {
         {/* Mobile Layout */}
         <div className="lg:hidden px-6">
           <div className="relative w-full h-64 md:h-80">
-            <img
+            <Image
               src="https://www.diabetes.org.uk/sites/default/files/2020-06/rsz_cumbria_north_east_scheme.jpg"
               alt="Looking for support"
+              width={800}
+              height={320}
               className="w-full h-full object-cover"
             />
           </div>
@@ -1101,8 +1156,8 @@ export default function Home({ blogs, news }: HomeClientProps) {
         <div className="hidden lg:block">
           <div className="relative lg:max-w-4xl mx-auto h-96 xl:h-[500px]">
             {/* Background Image */}
-            <img
-              src={SupportBG.src}
+            <Image
+              src={SupportBG}
               alt="Looking for support"
               className="absolute inset-0 w-full h-full object-cover"
             />
@@ -1155,9 +1210,11 @@ export default function Home({ blogs, news }: HomeClientProps) {
                 <Link key={idx} href={`/recipes/${recipe.slug}`}>
                   <Card className="overflow-hidden hover:shadow-lg rounded-none transition-shadow bg-white cursor-pointer h-full pb-6 pt-0">
                     <div className="relative h-48 bg-gray-200">
-                      <img
+                      <Image
                         src={recipe.image}
                         alt={recipe.imageAlt}
+                        width={400}
+                        height={192}
                         className="w-full h-full object-cover"
                       />
                     </div>
@@ -1256,9 +1313,11 @@ export default function Home({ blogs, news }: HomeClientProps) {
                 className="relative h-80 overflow-hidden group cursor-pointer border"
               >
                 <Link href={service.linkUrl} target={service.linkTarget}>
-                  <img
+                  <Image
                     src={service.image}
                     alt={service.title}
+                    width={400}
+                    height={320}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <div

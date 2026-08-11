@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { NewsArticle } from "@/lib/newsContent";
+import Image from "next/image";
 import Link from "next/link";
 
 interface NewsClientProps {
@@ -31,9 +32,12 @@ export default function NewsClient({ news }: NewsClientProps) {
         </div>
         {/* Hero Section */}
         <div className="flex col-span-2 md:col-span-1 items-center justify-center">
-          <img
+          <Image
             className="relative overflow-hidden bg-cover bg-center"
             src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=2100"
+            alt="News"
+            width={800}
+            height={600}
           />
           {/* <div className="absolute inset-0 bg-gray-500/60"></div> */}
         </div>
@@ -64,9 +68,11 @@ export default function NewsClient({ news }: NewsClientProps) {
                     >
                       {locale === "ur" && article.titleUr ? article.titleUr : article.title}
                     </h3>
-                    <img
+                    <Image
                       src={article.image}
                       alt={article.title}
+                      width={400}
+                      height={192}
                       className="w-full h-48 object-cover mb-4"
                     />
                     <Button variant="outlined" size="sm" className="w-fit">
