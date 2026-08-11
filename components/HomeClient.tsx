@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Image from "next/image";
+import YouTubeFacade from "@/components/YouTubeFacade";
 import { BlogArticle } from "@/lib/blogContent";
 import { NewsArticle } from "@/lib/newsContent";
 import { recipes } from "@/lib/recipeContent";
@@ -342,6 +343,7 @@ export default function Home({ blogs, news }: HomeClientProps) {
                     width={800}
                     height={550}
                     className="w-full h-full object-cover"
+                    priority={index === 0}
                   />
                 </div>
                 <div className="bg-white px-6 py-8">
@@ -372,6 +374,7 @@ export default function Home({ blogs, news }: HomeClientProps) {
                   width={1200}
                   height={550}
                   className="w-full h-[550px] object-cover"
+                  priority={index === 0}
                 />
 
                 {/* Text Overlay Box with Decorative Border */}
@@ -613,6 +616,7 @@ export default function Home({ blogs, news }: HomeClientProps) {
               <Image
                 src={PakistanMap}
                 alt="Pakistan Map"
+                sizes="(min-width: 1024px) 320px, 200px"
                 className="absolute top-1/2 -translate-y-1/2 right-0 h-[300px] w-auto object-fill"
               />
             </div>
@@ -883,6 +887,7 @@ export default function Home({ blogs, news }: HomeClientProps) {
               <Image
                 src={Story}
                 alt="Story featured image"
+                sizes="(min-width: 1024px) 500px, 100vw"
                 className="w-full h-auto object-cover"
               />
             </div>
@@ -951,6 +956,7 @@ export default function Home({ blogs, news }: HomeClientProps) {
                 <Image
                   src={Story}
                   alt="Story featured image"
+                  sizes="(min-width: 1024px) 500px, 100vw"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -980,21 +986,15 @@ export default function Home({ blogs, news }: HomeClientProps) {
                 {t("home.video.description2Suffix")}
               </p>
             </div>
-            <div className="relative w-full pb-[56.25%] bg-black">
-              <iframe
-                className="absolute top-0 left-0 w-full h-full"
-                src="https://www.youtube.com/embed/CyVTZC1Gz6w"
-                title="What is Diabesity?"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-            </div>
+            <YouTubeFacade
+              embedSrc="https://www.youtube.com/embed/CyVTZC1Gz6w"
+              thumbnailVideoId="CyVTZC1Gz6w"
+              title="What is Diabesity?"
+            />
           </div>
 
           {/* Desktop Layout */}
           <div className="hidden lg:grid grid-cols-3 gap-12 items-center">
-            {/* Left - 1 column (Text) */}
             <div className="col-span-1">
               <p className="text-primary-text text-md leading-relaxed">
                 {t("home.video.description1")}
@@ -1014,16 +1014,11 @@ export default function Home({ blogs, news }: HomeClientProps) {
 
             {/* Right - 2 columns (Video) */}
             <div className="col-span-2">
-              <div className="relative w-full pb-[56.25%] bg-black">
-                <iframe
-                  className="absolute top-0 left-0 w-full h-full"
-                  src="https://www.youtube.com/embed/CyVTZC1Gz6w"
-                  title="What is Diabesity?"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-              </div>
+              <YouTubeFacade
+                embedSrc="https://www.youtube.com/embed/CyVTZC1Gz6w"
+                thumbnailVideoId="CyVTZC1Gz6w"
+                title="What is Diabesity?"
+              />
             </div>
           </div>
         </div>
@@ -1051,17 +1046,11 @@ export default function Home({ blogs, news }: HomeClientProps) {
             </p>
           </div>
           <div className="max-w-2xl mx-auto">
-            <div className="relative w-full pb-[56.25%] bg-black">
-              <iframe
-                className="absolute top-0 left-0 w-full h-full"
-                src="https://www.youtube.com/embed/videoseries?list=PL4CCxDZb-iepUGlhIB8CLgybQDrlOfn0y"
-                title="Latest videos from Diabesity Life"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                loading="lazy"
-              ></iframe>
-            </div>
+            <YouTubeFacade
+              embedSrc="https://www.youtube.com/embed/videoseries?list=PL4CCxDZb-iepUGlhIB8CLgybQDrlOfn0y"
+              thumbnailVideoId="TLBubVDMAYA"
+              title="Latest videos from Diabesity Life"
+            />
           </div>
         </div>
       </section>
