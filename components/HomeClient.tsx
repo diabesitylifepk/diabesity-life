@@ -1030,8 +1030,8 @@ export default function Home({ blogs, news }: HomeClientProps) {
       </section>
 
       {/* Latest Channel Videos Section — connected to youtube.com/@diabesitylifepk.
-          Uses the channel's uploads playlist embed, which YouTube updates
-          automatically as new videos are published — no manual upkeep needed. */}
+          Plays the "HCP Videos" playlist specifically (not the full channel
+          uploads feed), so update the playlist ID here if that changes. */}
       <section className="py-16 bg-gray-50">
         <div className="lg:max-w-4xl xl:max-w-6xl 2xl:max-w-6xl mx-auto px-6 lg:px-0">
           <div className="flex flex-col gap-2 mb-8">
@@ -1050,16 +1050,18 @@ export default function Home({ blogs, news }: HomeClientProps) {
               </Link>
             </p>
           </div>
-          <div className="relative w-full pb-[56.25%] bg-black">
-            <iframe
-              className="absolute top-0 left-0 w-full h-full"
-              src="https://www.youtube.com/embed/videoseries?list=UUOrBT_vwwkps-XoJv1mcs1Q"
-              title="Latest videos from Diabesity Life"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              loading="lazy"
-            ></iframe>
+          <div className="max-w-2xl mx-auto">
+            <div className="relative w-full pb-[56.25%] bg-black">
+              <iframe
+                className="absolute top-0 left-0 w-full h-full"
+                src="https://www.youtube.com/embed/videoseries?list=PL4CCxDZb-iepUGlhIB8CLgybQDrlOfn0y"
+                title="Latest videos from Diabesity Life"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                loading="lazy"
+              ></iframe>
+            </div>
           </div>
         </div>
       </section>
