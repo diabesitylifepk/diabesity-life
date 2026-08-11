@@ -811,7 +811,7 @@ export default function Header() {
                     <Image
                       src="/logo.png"
                       alt="Diabesity"
-                      width={200}
+                      width={284}
                       height={80}
                       className="h-[80px] w-auto"
                       priority
@@ -843,7 +843,7 @@ export default function Header() {
                   <Image
                     src="/logo.png"
                     alt="Diabesity"
-                    width={120}
+                    width={160}
                     height={45}
                     className="h-[45px] w-auto"
                     priority

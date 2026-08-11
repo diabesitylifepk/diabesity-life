@@ -133,6 +133,7 @@ export default function Sidebar() {
                 e.stopPropagation();
                 toggleExpanded(item.label);
               }}
+              aria-label={isExpanded ? `Collapse ${item.label}` : `Expand ${item.label}`}
               className="mr-1 p-0.5"
             >
               {isExpanded ? (

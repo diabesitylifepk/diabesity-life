@@ -213,6 +213,7 @@ export default function ChatWidget() {
       {/* Toggle button */}
       <button
         onClick={() => setIsOpen((prev) => !prev)}
+        aria-label={isOpen ? "Close chat" : "Open chat"}
         className="w-14 h-14 rounded-full bg-primary text-white shadow-lg hover:bg-primary/90 transition-colors flex items-center justify-center"
       >
         {isOpen ? (
